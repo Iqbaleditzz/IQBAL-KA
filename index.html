@@ -47,6 +47,15 @@ nav a{
 nav a:hover{color:var(--accent);}
 
 /* HERO */
+  .hero-image{
+  width:100%;
+  height:60vh;
+  background:
+    linear-gradient(to bottom, rgba(13,15,20,0.2), #0d0f14 90%),
+    url("assets/photo.jpeg") center/cover no-repeat;
+  
+  filter:brightness(0.6) contrast(1.1);
+}
 .hero{
   height:100vh;
   display:flex;
@@ -55,7 +64,10 @@ nav a:hover{color:var(--accent);}
   align-items:center;
   text-align:center;
 }
-
+.hero{
+  min-height:60vh;
+  padding-top:40px;
+}
 .hero h1{
   font-size:3rem;
   letter-spacing:2px;
@@ -135,7 +147,7 @@ footer{
 <body>
 
 <nav>
-  <h2>IQBAL</h2>
+  <h2>IQBAL K A</h2>
   <div>
     <a href="#about">About</a>
     <a href="#exp">Experience</a>
@@ -143,7 +155,7 @@ footer{
     <a href="#contact">Contact</a>
   </div>
 </nav>
-
+<div class="hero-image"></div>
 <!-- HERO -->
 <div class="hero">
   <h1>IQBAL <span>K A</span></h1>
