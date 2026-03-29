@@ -9,8 +9,8 @@
 
 <style>
 :root{
-  --bg:#0d0f14;
-  --card:rgba(255,255,255,0.05);
+  --bg:#0b0d12;
+  --card:rgba(255,255,255,0.06);
   --accent:#ff2e63;
   --text:#eaeaea;
 }
@@ -28,8 +28,8 @@ nav{
   position:fixed;
   width:100%;
   padding:15px 30px;
-  backdrop-filter:blur(10px);
-  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(14px);
+  background:rgba(0,0,0,0.4);
   display:flex;
   justify-content:space-between;
   z-index:1000;
@@ -43,88 +43,74 @@ nav a{
   text-decoration:none;
   transition:0.3s;
 }
-
 nav a:hover{color:var(--accent);}
 
-/* HERO */
-  .hero-image{
-  width:100%;
-  height:60vh;
+/* HERO IMAGE */
+.hero-image{
+  height:65vh;
   background:
-    linear-gradient(to bottom, rgba(13,15,20,0.2), #0d0f14 90%),
+    linear-gradient(to bottom, rgba(0,0,0,0.2), #0b0d12 95%),
     url("assets/photo.jpeg") center/cover no-repeat;
-  
-  filter:brightness(0.6) contrast(1.1);
+  filter:brightness(0.65);
 }
+
+/* HERO TEXT */
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
   text-align:center;
+  margin-top:-120px;
+  padding:40px 20px;
 }
-.hero{
-  min-height:60vh;
-  padding-top:40px;
-}
+
 .hero h1{
   font-size:3rem;
   letter-spacing:2px;
 }
-
 .hero span{color:var(--accent);}
 
 .hero p{
-  margin-top:10px;
   color:#bbb;
+  margin-top:10px;
 }
 
-.btns{
-  margin-top:20px;
-}
-
+/* BUTTON */
 .btn{
+  display:inline-block;
+  margin-top:20px;
   padding:10px 20px;
   border:1px solid var(--accent);
   color:var(--accent);
-  margin:10px;
-  cursor:pointer;
   transition:0.3s;
 }
-
 .btn:hover{
   background:var(--accent);
   color:#000;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-  padding:80px 20px;
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
+  padding:70px 20px;
 }
 
 .section-title{
-  font-size:1.8rem;
-  margin-bottom:20px;
   color:var(--accent);
+  margin-bottom:20px;
+  font-size:1.6rem;
 }
 
 /* CARD */
 .card{
   background:var(--card);
   padding:20px;
-  margin-bottom:15px;
-  border-radius:10px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
-
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 20px rgba(255,46,99,0.3);
+  transform:translateY(-6px);
+  box-shadow:0 0 25px rgba(255,46,99,0.25);
 }
 
 /* GRID */
@@ -137,9 +123,20 @@ section{
 /* FOOTER */
 footer{
   text-align:center;
-  padding:20px;
-  border-top:1px solid rgba(255,255,255,0.1);
+  padding:25px;
+  border-top:1px solid rgba(255,255,255,0.08);
   color:#777;
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
 }
 </style>
 </head>
@@ -147,7 +144,7 @@ footer{
 <body>
 
 <nav>
-  <h2>IQBAL K A</h2>
+  <h2>IQBAL</h2>
   <div>
     <a href="#about">About</a>
     <a href="#exp">Experience</a>
@@ -155,39 +152,32 @@ footer{
     <a href="#contact">Contact</a>
   </div>
 </nav>
-<div class="hero-image"></div>
-<!-- HERO -->
-<div class="hero">
-  <h1>IQBAL <span>K A</span></h1>
-  <p>Nursing Professional | Critical Care | Tech-Driven Thinker</p>
 
-  <div class="btns">
-    <a href="#contact" class="btn">Contact Me</a>
-    <a href="#" class="btn" onclick="downloadCV()">Download CV</a>
-  </div>
+<div class="hero-image"></div>
+
+<div class="hero reveal">
+  <h1>IQBAL <span>K A</span></h1>
+  <p>Critical Care | Precision | Patient-Centered</p>
+  <a href="#contact" class="btn">Contact Me</a>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-title">About Me</div>
+<section id="about" class="reveal">
+  <div class="section-title">About</div>
   <div class="card">
-    Dedicated nursing professional trained in critical care, labour room, medical and psychiatric wards. Calm under pressure. Precision-focused. Driven to deliver patient-centered care with discipline and clarity. Not just a caregiver — a system thinker.
+    Calm under pressure. Trained across ICU, labour, psychiatric and medical wards. Focused on precision, patient safety, and clarity in care delivery.
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="exp">
+<section id="exp" class="reveal">
   <div class="section-title">Experience</div>
   <div class="card">
-    <strong>Nursing Intern – IQRAA Hospital</strong><br>
+    Nursing Intern — IQRAA Hospital<br>
     MICU • SICU • Labour Room • Psychiatric Ward
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal">
   <div class="section-title">Skills</div>
-
   <div class="grid">
     <div class="card">Patient Assessment</div>
     <div class="card">Medication Administration</div>
@@ -198,55 +188,42 @@ footer{
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section>
+<section class="reveal">
   <div class="section-title">Education</div>
-
-  <div class="card">BSc Nursing (2022–2026)</div>
-  <div class="card">Diploma in Computer Application</div>
-  <div class="card">Plus Two – 89%</div>
-  <div class="card">SSLC – 99%</div>
+  <div class="grid">
+    <div class="card">BSc Nursing (2022–2026)</div>
+    <div class="card">Diploma in Computer Application</div>
+    <div class="card">Plus Two – 89%</div>
+    <div class="card">SSLC – 99%</div>
+  </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section>
-  <div class="section-title">Certifications</div>
-
-  <div class="card">Microsoft Generative AI</div>
-  <div class="card">LinkedIn Project Management</div>
-  <div class="card">KKEM Personality Development</div>
-  <div class="card">Palliative Care Training</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal">
   <div class="section-title">Contact</div>
-
   <div class="card">
     Email: iqbalka916@gmail.com<br>
-    Phone: +91 9207063916<br>
-    Location: Alanallur-II
+    Phone: +91 9207063916
   </div>
 </section>
 
 <footer>
-  Built by IQBAL K A | Precision meets care
+  Built by IQBAL K A
 </footer>
 
 <script>
-function downloadCV(){
-  window.open("cv.pdf","_blank");
+/* reveal animation */
+function reveal(){
+  let reveals=document.querySelectorAll(".reveal");
+  for(let i=0;i<reveals.length;i++){
+    let windowHeight=window.innerHeight;
+    let elementTop=reveals[i].getBoundingClientRect().top;
+    let visible=100;
+    if(elementTop<windowHeight-visible){
+      reveals[i].classList.add("active");
+    }
+  }
 }
-
-/* smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior:'smooth'
-    });
-  });
-});
+window.addEventListener("scroll",reveal);
 </script>
 
 </body>
