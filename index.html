@@ -11,279 +11,284 @@
 <style>
 :root{
   --bg:#07080c;
-  --card:#111318;
+  --card:rgba(255,255,255,0.04);
   --accent:#ff2e63;
   --text:#eaeaea;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
-body{background:var(--bg);color:var(--text);}
+body{
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
 
 /* NAV */
 nav{
   position:fixed;
   width:100%;
-  padding:18px 40px;
+  padding:16px 40px;
   display:flex;
   justify-content:space-between;
+  backdrop-filter:blur(12px);
   background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(10px);
   z-index:1000;
 }
-nav h2 span{color:var(--accent);font-size:12px;margin-left:5px;}
-nav a{color:#aaa;margin-left:20px;text-decoration:none;}
-nav a:hover{color:white}
+nav a{
+  color:#aaa;
+  margin-left:20px;
+  text-decoration:none;
+}
+nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
   background:
-    radial-gradient(circle at center, rgba(255,46,99,0.25), transparent 60%);
-}
-
-.badge{
-  background:#1a1c22;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:13px;
-  margin-bottom:20px;
+    radial-gradient(circle at center, rgba(255,46,99,0.2), transparent 60%);
 }
 
 .hero h1{
-  font-size:4rem;
-  color:#ff5c7c;
+  font-size:64px;
+  background:linear-gradient(90deg,#ff6a88,#ff2e63);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero h3{
-  margin:15px 0;
-  font-weight:400;
-  color:#bbb;
-}
+.hero p{color:#aaa;margin-top:10px}
 
-.hero p{
-  max-width:600px;
-  color:#888;
-}
-
-.btns{
-  margin-top:25px;
-}
 .btn{
-  padding:12px 25px;
-  border-radius:6px;
+  display:inline-block;
   margin:10px;
-  cursor:pointer;
+  padding:12px 22px;
+  border-radius:8px;
   text-decoration:none;
 }
-.primary{
-  background:var(--accent);
-  color:#fff;
-}
-.secondary{
-  border:1px solid #444;
-  color:#ccc;
-}
-
-/* STATS */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:80px;
-  margin-top:40px;
-}
-.stat{
-  text-align:center;
-}
-.stat h2{color:var(--accent)}
+.primary{background:var(--accent);color:#fff;}
+.secondary{border:1px solid #333;color:#ccc}
 
 /* SECTION */
 section{
-  padding:80px 40px;
-  max-width:1200px;
+  padding:80px 20px;
+  max-width:1100px;
   margin:auto;
 }
+
 .title{
-  text-align:center;
-  font-size:2.5rem;
+  font-size:2rem;
   margin-bottom:10px;
 }
-.subtitle{
-  text-align:center;
-  color:#888;
-  margin-bottom:40px;
-}
+.subtitle{color:#888;margin-bottom:30px}
 
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
+/* CARD */
 .card{
   background:var(--card);
-  padding:25px;
+  padding:20px;
   border-radius:14px;
-  border:1px solid rgba(255,255,255,0.05);
-  transition:0.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 20px rgba(255,46,99,0.2);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.08);
+  margin-bottom:15px;
 }
 
-/* SKILL BAR */
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+/* PROGRESS */
 .bar{
   height:6px;
   background:#222;
   border-radius:10px;
-  margin-top:10px;
 }
 .fill{
   height:100%;
   background:var(--accent);
-  border-radius:10px;
 }
 
 /* CONTACT */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
 input,textarea{
   width:100%;
-  padding:12px;
+  padding:10px;
   background:#0f1116;
   border:1px solid #222;
   color:#fff;
   margin-bottom:10px;
   border-radius:6px;
 }
-button{
-  background:var(--accent);
-  padding:12px;
-  border:none;
-  color:#fff;
-  width:100%;
-  border-radius:6px;
-}
 
 /* FOOTER */
 footer{
-  padding:30px;
   text-align:center;
-  color:#777;
+  padding:20px;
   border-top:1px solid #111;
+  color:#777;
 }
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:none}
 </style>
 </head>
 
 <body>
 
 <nav>
-  <h2>IQBAL K A <span>RN</span></h2>
+  <h3>IQBAL K A</h3>
   <div>
     <a href="#about">About</a>
     <a href="#exp">Experience</a>
     <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="badge">● Available for Opportunities</div>
-  <h1>IQBAL K A</h1>
-  <h3>Nursing Professional | Critical Care | Tech-Driven Thinker</h3>
-  <p>Delivering patient-centered care with responsibility, precision, and compassion. Combining clinical expertise with technological innovation.</p>
+<section class="hero">
+  <div>
+    <h1>IQBAL K A</h1>
+    <p>Nursing Professional | Critical Care | Tech-Driven Thinker</p>
+    <p>Patient-centered care. Precision. Responsibility.</p>
 
-  <div class="btns">
-    <a href="#exp" class="btn primary">View Experience</a>
-    <a href="#" class="btn secondary">Download CV</a>
+    <a href="#exp" class="btn primary">View Projects</a>
+    <a href="#contact" class="btn secondary">Contact Me</a>
   </div>
-
-  <div class="stats">
-    <div class="stat"><h2>6+</h2><p>Months Experience</p></div>
-    <div class="stat"><h2>5</h2><p>Ward Rotations</p></div>
-    <div class="stat"><h2>4</h2><p>Certifications</p></div>
-  </div>
-</div>
+</section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <div class="title">About Me</div>
-  <div class="subtitle">Dedicated to Excellence in Patient Care</div>
+  <div class="subtitle">Focused. Calm. Precise.</div>
 
-  <div class="grid">
-    <div class="card"><i class="fa-regular fa-heart"></i><h3>Patient-Centered</h3><p>Prioritizing compassion and dignity.</p></div>
-    <div class="card"><i class="fa-solid fa-bullseye"></i><h3>Precision-Focused</h3><p>Detail-driven care delivery.</p></div>
-    <div class="card"><i class="fa-solid fa-award"></i><h3>Continuous Learner</h3><p>Always improving and adapting.</p></div>
+  <div class="card">
+    Dedicated nursing professional with hands-on experience across MICU, SICU, labour, and psychiatric care. 
+    Calm under pressure and driven by precision, I deliver patient-centered care with responsibility and clarity. 
+    Blending clinical expertise with technological awareness, I operate with discipline, empathy, and continuous improvement.
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="exp">
-  <div class="title">Clinical Experience</div>
-  <div class="subtitle">Comprehensive Training</div>
+<section id="exp" class="reveal">
+  <div class="title">Experience</div>
 
   <div class="card">
-    <h3>Nursing Intern — IQRAA Hospital</h3>
-    <p>MICU, SICU, Labour Room, Psychiatric Ward</p>
+    <strong>Nursing Intern — IQRAA Hospital</strong><br><br>
+    • MICU<br>
+    • SICU<br>
+    • Labour Room<br>
+    • Psychiatric Ward
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="title">Skills & Expertise</div>
+<section id="skills" class="reveal">
+  <div class="title">Skills</div>
 
   <div class="grid">
     <div class="card">
-      <h3>Clinical Skills</h3>
-      <p>Patient Assessment</p>
-      <div class="bar"><div class="fill" style="width:90%"></div></div>
-      <p>Medication</p>
-      <div class="bar"><div class="fill" style="width:95%"></div></div>
+      <h3>Clinical</h3>
+      Patient Assessment
+      <div class="bar"><div class="fill" style="width:90%"></div></div><br>
+      Medication Administration
+      <div class="bar"><div class="fill" style="width:95%"></div></div><br>
+      EMR Documentation
+      <div class="bar"><div class="fill" style="width:85%"></div></div>
     </div>
 
     <div class="card">
       <h3>Soft Skills</h3>
-      <p>Communication</p>
-      <div class="bar"><div class="fill" style="width:95%"></div></div>
-      <p>Empathy</p>
-      <div class="bar"><div class="fill" style="width:98%"></div></div>
+      Communication
+      <div class="bar"><div class="fill" style="width:95%"></div></div><br>
+      Empathy
+      <div class="bar"><div class="fill" style="width:98%"></div></div><br>
+      Patience
+      <div class="bar"><div class="fill" style="width:92%"></div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="title">Get In Touch</div>
+<!-- EDUCATION -->
+<section class="reveal">
+  <div class="title">Education</div>
 
-  <div class="contact">
+  <div class="card">BSc Nursing (2022–2026)</div>
+  <div class="card">Diploma in Computer Application</div>
+  <div class="card">Plus Two – 89%</div>
+  <div class="card">SSLC – 99%</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="reveal">
+  <div class="title">Certifications</div>
+
+  <div class="grid">
+    <div class="card">Microsoft Generative AI</div>
+    <div class="card">LinkedIn Project Management</div>
+    <div class="card">KKEM Personality Development</div>
+    <div class="card">Palliative Care Training</div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="reveal">
+  <div class="title">Leadership</div>
+
+  <div class="card">College Union Chairman (2024–25)</div>
+  <div class="card">University Union Councillor (2023–24)</div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="reveal">
+  <div class="title">Languages</div>
+
+  <div class="grid">
+    <div class="card">Malayalam</div>
+    <div class="card">English</div>
+    <div class="card">Hindi</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="title">Contact</div>
+
+  <div class="grid">
     <div class="card">
       Email: iqbalka916@gmail.com<br>
-      Phone: +91 9207063916
+      Phone: +91 9207063916<br>
+      Location: Alanallur-II
     </div>
 
     <div class="card">
       <input placeholder="Name">
       <input placeholder="Email">
       <textarea placeholder="Message"></textarea>
-      <button>Send Message</button>
+      <button class="btn primary">Send</button>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 IQBAL K A — Precision meets care
+  Built by IQBAL K A | Precision meets care
 </footer>
+
+<script>
+function reveal(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active")
+    }
+  })
+}
+window.addEventListener("scroll", reveal)
+</script>
 
 </body>
 </html>
