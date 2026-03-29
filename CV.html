@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IQBAL K A</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0d0f14;
+  --card:rgba(255,255,255,0.05);
+  --accent:#ff2e63;
+  --text:#eaeaea;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  padding:15px 30px;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.3);
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+}
+
+nav h2{color:var(--accent);}
+
+nav a{
+  color:#aaa;
+  margin-left:20px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+nav a:hover{color:var(--accent);}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3rem;
+  letter-spacing:2px;
+}
+
+.hero span{color:var(--accent);}
+
+.hero p{
+  margin-top:10px;
+  color:#bbb;
+}
+
+.btns{
+  margin-top:20px;
+}
+
+.btn{
+  padding:10px 20px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  margin:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.section-title{
+  font-size:1.8rem;
+  margin-bottom:20px;
+  color:var(--accent);
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:20px;
+  margin-bottom:15px;
+  border-radius:10px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(255,46,99,0.3);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>IQBAL</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#exp">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>IQBAL <span>K A</span></h1>
+  <p>Nursing Professional | Critical Care | Tech-Driven Thinker</p>
+
+  <div class="btns">
+    <a href="#contact" class="btn">Contact Me</a>
+    <a href="#" class="btn" onclick="downloadCV()">Download CV</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">About Me</div>
+  <div class="card">
+    Dedicated nursing professional trained in critical care, labour room, medical and psychiatric wards. Calm under pressure. Precision-focused. Driven to deliver patient-centered care with discipline and clarity. Not just a caregiver — a system thinker.
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+  <div class="section-title">Experience</div>
+  <div class="card">
+    <strong>Nursing Intern – IQRAA Hospital</strong><br>
+    MICU • SICU • Labour Room • Psychiatric Ward
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title">Skills</div>
+
+  <div class="grid">
+    <div class="card">Patient Assessment</div>
+    <div class="card">Medication Administration</div>
+    <div class="card">EMR Documentation</div>
+    <div class="card">Communication</div>
+    <div class="card">Empathy</div>
+    <div class="card">Patience</div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <div class="section-title">Education</div>
+
+  <div class="card">BSc Nursing (2022–2026)</div>
+  <div class="card">Diploma in Computer Application</div>
+  <div class="card">Plus Two – 89%</div>
+  <div class="card">SSLC – 99%</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-title">Certifications</div>
+
+  <div class="card">Microsoft Generative AI</div>
+  <div class="card">LinkedIn Project Management</div>
+  <div class="card">KKEM Personality Development</div>
+  <div class="card">Palliative Care Training</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">Contact</div>
+
+  <div class="card">
+    Email: iqbalka916@gmail.com<br>
+    Phone: +91 9207063916<br>
+    Location: Alanallur-II
+  </div>
+</section>
+
+<footer>
+  Built by IQBAL K A | Precision meets care
+</footer>
+
+<script>
+function downloadCV(){
+  window.open("cv.pdf","_blank");
+}
+
+/* smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior:'smooth'
+    });
+  });
+});
+</script>
+
+</body>
+</html>
